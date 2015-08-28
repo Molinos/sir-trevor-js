@@ -3413,7 +3413,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
     .bind('paste', this._handleContentPaste)
     .bind('keyup', this.getSelectionForFormatter)
     .bind('mouseup', this.getSelectionForFormatter)
-    .bind('DOMNodeInserted', this.clearInsertedStyles);
+    //.bind('DOMNodeInserted', this.clearInsertedStyles);
   },
 
   getSelectionForFormatter: function() {

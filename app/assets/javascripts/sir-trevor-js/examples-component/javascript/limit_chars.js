@@ -25,10 +25,10 @@
       }));
 
       // Attach event
-      this.bind('keydown keyup paste',function(ev){
-        count = ($(this).chars()<$(this).attr('data-maxlength')) ? $(this).chars() : '<em>'+$(this).chars()+'</em>';
-        $(this).parent().find('.count').html(count+' of '+$(this).attr('data-maxlength'));
-      });
+      //this.bind('keydown keyup paste',function(ev){
+        //count = ($(this).chars()<$(this).attr('data-maxlength')) ? $(this).chars() : '<em>'+$(this).chars()+'</em>';
+        //$(this).parent().find('.count').html(count+' of '+$(this).attr('data-maxlength'));
+      //});
 
     }
 

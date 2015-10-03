@@ -25,7 +25,7 @@ module.exports = Block.extend({
 
   onBlockRender: function() {
     this.checkForList = this.checkForList.bind(this);
-    this.getTextBlock().on('click keyup', this.checkForList);
+    //this.getTextBlock().on('click keyup', this.checkForList);
     this.focus();
   },
 

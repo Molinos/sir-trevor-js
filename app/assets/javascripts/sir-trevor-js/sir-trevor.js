@@ -3145,9 +3145,7 @@ config.defaults.Block = {
 Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
 
   bound: [
-    "_handleContentPaste", "_onFocus", "_onBlur", "onDrop", "onDeleteClick",
-    "clearInsertedStyles", "getSelectionForFormatter", "onBlockRender",
-  ],
+, "_onFocus", "_onBlur", "onDrop", "onDeleteClick", "onBlockRender", ],
 
   className: 'st-block st-icon--add',
 
@@ -3368,6 +3366,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
   },
 
   _handleContentPaste: function(ev) {
+    return
     setTimeout(this.onContentPasted.bind(this, ev, $(ev.currentTarget)), 0);
   },
 
@@ -3411,8 +3410,8 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
   _initTextBlocks: function() {
     this.getTextBlock()
     .bind('paste', this._handleContentPaste)
-    .bind('keyup', this.getSelectionForFormatter)
-    .bind('mouseup', this.getSelectionForFormatter)
+    //.bind('keyup', this.getSelectionForFormatter)
+    //.bind('mouseup', this.getSelectionForFormatter)
     //.bind('DOMNodeInserted', this.clearInsertedStyles);
   },
 
@@ -3430,7 +3429,7 @@ Object.assign(Block.prototype, SimpleBlock.fn, require('./block-validations'), {
 
   clearInsertedStyles: function(e) {
     var target = e.target;
-    target.removeAttribute('style'); // Hacky fix for Chrome.
+    //target.removeAttribute('style'); // Hacky fix for Chrome.
   },
 
   hasTextBlock: function() {
@@ -3832,7 +3831,7 @@ module.exports = Block.extend({
 
   onBlockRender: function() {
     this.checkForList = this.checkForList.bind(this);
-    this.getTextBlock().on('click keyup', this.checkForList);
+    //this.getTextBlock().on('click keyup', this.checkForList);
     this.focus();
   },
 
@@ -5098,6 +5097,7 @@ Object.assign(Formatter.prototype, {
   },
 
   _bindToBlock: function(block) {
+    return false;
     var formatter = this,
     ctrlDown = false;
 
